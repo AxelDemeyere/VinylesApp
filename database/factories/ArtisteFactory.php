@@ -2,13 +2,13 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
+use App\Models\Artiste;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class UserFactory extends Factory
+class ArtisteFactory extends Factory
 {
-    protected $model = User::class;
+    protected $model = Artiste::class;
 
     public function definition(): array
     {

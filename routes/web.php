@@ -4,6 +4,9 @@ use App\Models\Vinyle;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/api/vinyle', function () {
+    return Vinyle::all();
+});
 
 Route::get('/vinyles/', function () {
     $vinyles = Vinyle::all();
@@ -11,8 +14,7 @@ Route::get('/vinyles/', function () {
 });
 
 Route::get('/vinyles/{id}', function ($id) {
-    $vinyles = Vinyle::all();
-    $vinyle = Arr::first($vinyles, fn($vinyle) => $vinyle['id'] == $id);
+    $vinyle = Vinyle::find($id);
     return view('vinyle', [ 'vinyle' => $vinyle ] );
 });
 

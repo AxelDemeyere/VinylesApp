@@ -11,17 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vinyle', function (Blueprint $table) {
+        Schema::create('vinyles', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('artiste');
             $table->integer('annee');
-            $table->string('label');
             $table->string('image');
             $table->string('description');
+            $table->foreignId('artiste_id')->constrained();
+            $table->foreignId('label_id')->constrained();
+            $table->foreignId('comment_id')->constrained();
+
             $table->timestamps();
         });
     }
+
+
 
     /**
      * Reverse the migrations.
@@ -31,3 +35,4 @@ return new class extends Migration
         Schema::dropIfExists('vinyle');
     }
 };
+
